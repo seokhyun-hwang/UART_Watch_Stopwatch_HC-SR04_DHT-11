@@ -148,8 +148,4 @@ PC 터미널(TeraTerm, PuTTY) 접속 정보: **Baud Rate 9600, Data 8-bit, Parit
 
 -----
 
-\<i\>Developed with Passion for Digital Logic Design.\</i\>
-\</div\>
-
-```
-```
+<i>Developed with Passion for Digital Logic Design.</i> </div>
