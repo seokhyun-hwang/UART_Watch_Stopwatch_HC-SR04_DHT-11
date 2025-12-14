@@ -2,6 +2,11 @@
 
 \<div align="center"\>
 
+\<img src="[https://img.shields.io/badge/Device-Basys3](https://img.shields.io/badge/Device-Basys3) (Artix--7)-green?style=for-the-badge\&logo=xilinx" /\>
+\<img src="[https://img.shields.io/badge/Language-Verilog\_HDL-blue?style=for-the-badge\&logo=verilog](https://img.shields.io/badge/Language-Verilog_HDL-blue?style=for-the-badge&logo=verilog)" /\>
+\<img src="[https://img.shields.io/badge/Tool-Vivado\_202x-red?style=for-the-badge\&logo=xilinx](https://img.shields.io/badge/Tool-Vivado_202x-red?style=for-the-badge&logo=xilinx)" /\>
+\<img src="[https://img.shields.io/badge/Protocol-UART\_RS232-orange?style=for-the-badge](https://img.shields.io/badge/Protocol-UART_RS232-orange?style=for-the-badge)" /\>
+
 <br>
 
 **Dual-Mode Timing & Multi-Sensor Monitoring System**<br>
@@ -23,9 +28,24 @@ FSM 기반의 정밀 타이밍 제어와 FIFO 버퍼링을 적용한 UART 비동
 
 -----
 
-## 🔧 2. 시스템 아키텍처 (System Architecture)
+## 🛠 2. 개발 환경 (Environment)
 
-### 2.1 하드웨어 블록 다이어그램 (H/W Block Diagram)
+| Category | Details |
+|:---:|:---|
+| **FPGA Board** | Digilent Basys 3 (Artix-7 XC7A35T-1CPG236C) |
+| **Software** | Xilinx Vivado Design Suite 202x (WebPACK) |
+| **Language** | Verilog HDL |
+| **Sensors** | HC-SR04 (Ultrasonic), DHT-11 (Temp/Humidity) |
+| **Communication** | UART RS-232 (Baud rate: 9600) |
+| **Terminal Tool** | TeraTerm, PuTTY, or Serial Monitor |
+
+<br>
+
+-----
+
+## 🔧 3. 시스템 아키텍처 (System Architecture)
+
+### 3.1 하드웨어 블록 다이어그램 (H/W Block Diagram)
 
 전체 시스템은 **입력 처리부**, **코어 로직(타이머/센서)**, 그리고 \*\*출력 제어부(FND/UART)\*\*로 구성됩니다.
 
@@ -57,7 +77,7 @@ graph TD
 
 <br>
 
-### 2.2 클럭 도메인 설계 (Clock Domain Design)
+### 3.2 클럭 도메인 설계 (Clock Domain Design)
 
 시스템은 $100\text{ MHz}$ 메인 클럭을 분주하여 다양한 서브 클럭을 생성하여 사용합니다.
 
@@ -70,9 +90,9 @@ graph TD
 
 -----
 
-## 💻 3. 핵심 기술 및 구현 상세 (Technical Details)
+## 💻 4. 핵심 기술 및 구현 상세 (Technical Details)
 
-### 3.1 🛡️ UART 통신 및 FIFO 버퍼링 (Robust UART with FIFO)
+### 4.1 🛡️ UART 통신 및 FIFO 버퍼링 (Robust UART with FIFO)
 
 비동기 통신(Asynchronous Communication)의 특성상 발생할 수 있는 데이터 타이밍 불일치 문제를 해결하기 위해 \*\*FIFO(First-In First-Out)\*\*를 도입했습니다.
 
@@ -82,7 +102,7 @@ graph TD
 
 <br>
 
-### 3.2 ⏱️ 유한 상태 머신 (FSM) 기반 제어
+### 4.2 ⏱️ 유한 상태 머신 (FSM) 기반 제어
 
 스톱워치와 센서 제어는 안정적인 상태 전이를 위해 **Moore Machine** 구조의 FSM으로 설계되었습니다.
 
@@ -92,7 +112,7 @@ graph TD
 
 <br>
 
-### 3.3 📟 다이내믹 디스플레이 (Dynamic Multiplexing)
+### 4.3 📟 다이내믹 디스플레이 (Dynamic Multiplexing)
 
   * **Digit Splitter:** 2진수(Binary) 시간 데이터 및 센서 값을 10진수(BCD)의 각 자릿수로 변환 (`% 10`, `/ 10` 연산 활용).
   * **Scanning:** 4개의 Anode(`fnd_com`)를 $1\text{ kHz}$ 속도로 순차 점멸시켜, 시각적으로 4자리가 동시에 켜진 것처럼 보이게 구현했습니다.
@@ -101,9 +121,9 @@ graph TD
 
 -----
 
-## 🎮 4. 사용자 인터페이스 (User Interface)
+## 🎮 5. 사용자 인터페이스 (User Interface)
 
-### 4.1 UART 원격 제어 프로토콜
+### 5.1 UART 원격 제어 프로토콜
 
 PC 터미널(TeraTerm, PuTTY) 접속 정보: **Baud Rate 9600, Data 8-bit, Parity None, Stop 1-bit**
 
@@ -118,7 +138,7 @@ PC 터미널(TeraTerm, PuTTY) 접속 정보: **Baud Rate 9600, Data 8-bit, Parit
 
 <br>
 
-### 4.2 FPGA 물리 버튼 및 핀 매핑 (Pin Assignment)
+### 5.2 FPGA 물리 버튼 및 핀 매핑 (Pin Assignment)
 
 `.xdc` 제약 파일에 정의된 I/O 매핑입니다. (센서는 PMOD 포트 사용 가정)
 
@@ -139,17 +159,17 @@ PC 터미널(TeraTerm, PuTTY) 접속 정보: **Baud Rate 9600, Data 8-bit, Parit
 
 -----
 
-## 📄 5. 프로젝트 발표 자료 (Project Presentation)
+## 📄 6. 프로젝트 발표 자료 (Project Presentation)
 
 프로젝트 발표 자료는 아래 버튼을 클릭하여 확인하실 수 있습니다.
 
-[![PDF Report](https://img.shields.io/badge/📄_PDF_Report-View_Document-FF0000?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/seokhyun-hwang/files/blob/main/UART_watch_stopwatch_HC-SR04_DHT-11.pdf)
+[](https://github.com/seokhyun-hwang/files/blob/main/UART_watch_stopwatch_HC-SR04_DHT-11.pdf)
 
 <br>
 
 -----
 
-## 📂 6. 프로젝트 디렉토리 구조 (Directory Structure)
+## 📂 7. 프로젝트 디렉토리 구조 (Directory Structure)
 
 ```text
 📦 FPGA-Watch-Sensor-System
@@ -174,7 +194,7 @@ PC 터미널(TeraTerm, PuTTY) 접속 정보: **Baud Rate 9600, Data 8-bit, Parit
 
 -----
 
-## 🚀 7. 시작 가이드 (Getting Started)
+## 🚀 8. 시작 가이드 (Getting Started)
 
 1.  **환경 설정:** Xilinx Vivado 설치 및 Digilent Basys 3 보드 드라이버 설정.
 2.  **프로젝트 생성:** Vivado에서 'RTL Project' 생성 후 `src` 폴더 내의 Verilog 파일 로드.
