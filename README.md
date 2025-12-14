@@ -1,20 +1,9 @@
 # 📡 FPGA Integrated UART Control System: Watch, Stopwatch & Sensors
 
-\<div align="center"\>
-
-\<img src="[https://img.shields.io/badge/Device-Basys3](https://img.shields.io/badge/Device-Basys3) (Artix--7)-green?style=for-the-badge\&logo=xilinx" /\>
-\<img src="[https://img.shields.io/badge/Language-Verilog\_HDL-blue?style=for-the-badge\&logo=verilog](https://img.shields.io/badge/Language-Verilog_HDL-blue?style=for-the-badge&logo=verilog)" /\>
-\<img src="[https://img.shields.io/badge/Tool-Vivado\_202x-red?style=for-the-badge\&logo=xilinx](https://img.shields.io/badge/Tool-Vivado_202x-red?style=for-the-badge&logo=xilinx)" /\>
-\<img src="[https://img.shields.io/badge/Protocol-UART\_RS232-orange?style=for-the-badge](https://img.shields.io/badge/Protocol-UART_RS232-orange?style=for-the-badge)" /\>
-
 <br>
 
 **Dual-Mode Timing & Multi-Sensor Monitoring System**<br>
 FSM 기반의 정밀 타이밍 제어와 FIFO 버퍼링을 적용한 UART 비동기 통신 및 환경 모니터링 시스템
-
-\</div\>
-
-<br>
 
 -----
 
@@ -163,7 +152,7 @@ PC 터미널(TeraTerm, PuTTY) 접속 정보: **Baud Rate 9600, Data 8-bit, Parit
 
 프로젝트 발표 자료는 아래 버튼을 클릭하여 확인하실 수 있습니다.
 
-[](https://github.com/seokhyun-hwang/files/blob/main/UART_watch_stopwatch_HC-SR04_DHT-11.pdf)
+[![PDF Report](https://img.shields.io/badge/📄_PDF_Report-View_Document-FF0000?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/seokhyun-hwang/files/blob/main/UART_watch_stopwatch_HC-SR04_DHT-11.pdf)
 
 <br>
 
